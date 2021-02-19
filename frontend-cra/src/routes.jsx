@@ -38,6 +38,7 @@ const Routes = () => (
           component={component}
         />
       ))}
+      <Route exact path="/tododetails/:id" component={TodoDetails} />
     </Switch>
   </BrowserRouter>
 );

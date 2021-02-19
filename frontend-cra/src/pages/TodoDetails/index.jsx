@@ -7,27 +7,30 @@ import Card from '../../components/Card';
 import Todo from '../../components/Todo';
 
 export default function index() {
-  const todo = useState([]);
-
-  const findTodo = async (id) => {
+  const { id } = useParams();
+  const [todoDetail, setTodoDetail] = useState('');
+  const findTodo = async () => {
     // const response; // TO-DO: Usar a API para buscar o objeto pelo ID
-    const response = await axios.get(`/todo/${todo.id}`, {
-      ...todo,
-
-    });
-    // setTodo(response.data);
+    const response = await axios.get(`/todo/${id}`);
+    setTodoDetail(response.data);
   };
 
   useEffect(() => {
-    const oId = useParams;
-    findTodo(oId);
+    findTodo(id);
+    console.log(id);
     // TO-DO: Buscar o parâmetro do ID no componente através do Effect
   }, []);
   return (
     <Container>
       <Card title="Todo App" className="m-4">
-        <h3>Tarefa nº ...</h3>
-        <p>Descrição da tarefa ...</p>
+        <h3>
+          Tarefa nº ...
+          {todoDetail.id}
+        </h3>
+        <p>
+          Descrição da tarefa ...
+          {todoDetail.title}
+        </p>
         <Todo />
       </Card>
     </Container>

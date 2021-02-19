@@ -5,6 +5,7 @@ import Index from './pages';
 import Header from './components/Header';
 import Feature from './pages/Features';
 import Todo from './pages/Todos';
+import TodoDetails from './pages/TodoDetails';
 
 const routes = [
   {
@@ -17,6 +18,7 @@ const routes = [
     component: Todo,
     name: 'Todo',
   },
+  // TO-DO: Configurar rota de TodoDetails para aceitar ID no parametro
   {
     path: '/feature',
     component: Feature,

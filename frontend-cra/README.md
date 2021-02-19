@@ -7,7 +7,7 @@
 - Racine
 
 # Passos para criar a rota dinâmica
-1. [ ] Criar componente para TodoDetails 
+1. [X] Criar componente para TodoDetails 
 2. [ ] Configurar rota de TodoDetails para aceitar ID no parametro 
 3. [ ] Buscar o parâmetro do ID no componente através do Effect 
 4. [ ] Usar a API para buscar o objeto pelo ID 

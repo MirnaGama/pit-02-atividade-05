@@ -18,7 +18,6 @@ const routes = [
     component: Todo,
     name: 'Todo',
   },
-  // TO-DO: Configurar rota de TodoDetails para aceitar ID no parametro
   {
     path: '/feature',
     component: Feature,
@@ -38,7 +37,7 @@ const Routes = () => (
           component={component}
         />
       ))}
-      <Route exact path="/tododetails/:id" component={TodoDetails} />
+      <Route exact path="/todo/:id" component={TodoDetails} />
     </Switch>
   </BrowserRouter>
 );

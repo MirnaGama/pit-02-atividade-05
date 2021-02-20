@@ -16,11 +16,11 @@ export default function TodoForm({ todos, setTodos }) {
       title: text,
     };
 
-    await axios.post('/todo', data);
+    const response = await axios.post('/todo', data);
 
     toast(`Todo [${text}], created !`, { autoClose: 2000 });
 
-    setTodos([...todos, { title: text }]);
+    setTodos([...todos, response.data]);
     setText('');
   };
 

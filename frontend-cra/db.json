@@ -16,21 +16,5 @@
   "profile": {
     "name": "typicode"
   },
-  "todo": [
-    {
-      "completed": true,
-      "title": "comer",
-      "id": 1
-    },
-    {
-      "completed": true,
-      "title": "tomar banho",
-      "id": 2
-    },
-    {
-      "completed": false,
-      "title": "malhar",
-      "id": 3
-    }
-  ]
+  "todo": []
 }

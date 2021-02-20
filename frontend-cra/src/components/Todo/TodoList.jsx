@@ -25,6 +25,13 @@ const TodoList = ({ todos, setTodos }) => {
     setTodos(newTodos);
   };
 
+  const isTodosEmpty = () => {
+    if (todos.length <= 0) {
+      return <p className="text-center">Lista vazia</p>;
+    }
+    return '';
+  };
+
   const onRemoveTodo = async (todo) => {
     const newTodos = todos.filter(({ id }) => id !== todo.id);
 
@@ -89,6 +96,7 @@ const TodoList = ({ todos, setTodos }) => {
           </tr>
         </thead>
         <tbody>
+          {isTodosEmpty()}
           {todos.map((todo, index) => (
             <tr>
               <td>
@@ -108,10 +116,12 @@ const TodoList = ({ todos, setTodos }) => {
                     onChange={(event) => onChangeTodo(event, index)}
                   />
                 ) : (
-                  <span className={todo.completed ? 'completed' : ''}>
-                    {todo.title}
-                  </span>
-                )}
+                    // eslint-disable-next-line react/jsx-indent
+                    <span className={todo.completed ? 'completed' : ''}>
+                      {todo.title}
+                    </span>
+                    // eslint-disable-next-line indent
+                  )}
 
               </td>
               <td>

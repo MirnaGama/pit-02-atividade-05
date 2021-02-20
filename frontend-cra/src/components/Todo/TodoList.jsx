@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Row, Button, Table,
 } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from '../../utils/api';
 
@@ -118,7 +119,7 @@ const TodoList = ({ todos, setTodos }) => {
                 ) : (
                     // eslint-disable-next-line react/jsx-indent
                     <span className={todo.completed ? 'completed' : ''}>
-                      {todo.title}
+                      <Link to={`todo/${todo.id}`}>{todo.title}</Link>
                     </span>
                     // eslint-disable-next-line indent
                   )}

@@ -1,28 +1,32 @@
-import React from 'react';
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 import axios from '../../utils/api';
 
 import Card from '../../components/Card';
 
 export default function index() {
-    const todo = useState([]);
+  const [todo, setTodo] = useState([]);
+  const [number, setNumber] = useState(0);
+  const { id } = useParams();
+  const bool = todo.completed ? 'finalizada' : 'não finalizada';
 
-    const findTodo = async (id) => {
-        const response; // TO-DO: Usar a API para buscar o objeto pelo ID
-        
-        // setTodo(response.data);
-        // TO-DO: Colocar a response num objeto ToDo e mostrar as informações na tela
-      };
-    
-      useEffect(() => {
-        findTodo(/*parametro ID aqui*/); // TO-DO: Buscar o parâmetro do ID no componente através do Effect
-      }, []);
+  const findTodo = async () => {
+    const response = await axios.get(`/todo/${id}`);
+    setTodo(response.data);
+  };
+
+  useEffect(() => {
+    findTodo();
+  }, []);
   return (
     <Container>
       <Card title="Todo App" className="m-4">
-        <h3>Tarefa nº ...</h3>
-        <p>Descrição da tarefa ...</p>
-        <Todo />
+        <h3>Tarefa nº: {todo.id}</h3>
+        <p>Descrição da tarefa: {todo.title}</p>
+        <p>Descrição da tarefa: {bool}</p>
       </Card>
     </Container>
   );

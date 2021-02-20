@@ -18,7 +18,11 @@ const routes = [
     component: Todo,
     name: 'Todo',
   },
-  // TO-DO: Configurar rota de TodoDetails para aceitar ID no parametro
+  {
+    path: '/todoDetails/:id',
+    component: TodoDetails,
+    name: 'Todo Details',
+  },
   {
     path: '/feature',
     component: Feature,

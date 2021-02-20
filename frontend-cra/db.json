@@ -18,13 +18,7 @@
   },
   "todo": [
     {
-      "completed": true,
-      "title": "www 12345",
-      "id": 13,
-      "edit": false
-    },
-    {
-      "completed": true,
+      "completed": false,
       "title": "www",
       "id": 14
     },
@@ -34,7 +28,7 @@
       "id": 15
     },
     {
-      "completed": true,
+      "completed": false,
       "title": "testando",
       "id": 16
     },

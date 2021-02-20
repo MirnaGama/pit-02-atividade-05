@@ -1,28 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 import axios from '../../utils/api';
 
 import Card from '../../components/Card';
 
 export default function index() {
-    const todo = useState([]);
+  const { id } = useParams();
+  const [todoDetail, setTodoDetail] = useState('');
 
-    const findTodo = async (id) => {
-        const response; // TO-DO: Usar a API para buscar o objeto pelo ID
-        
-        // setTodo(response.data);
-        // TO-DO: Colocar a response num objeto ToDo e mostrar as informações na tela
-      };
-    
-      useEffect(() => {
-        findTodo(/*parametro ID aqui*/); // TO-DO: Buscar o parâmetro do ID no componente através do Effect
-      }, []);
+  const findTodo = async () => {
+    const response = await axios.get(`/todo/${id}`);
+    setTodoDetail(response.data);
+  };
+
+  useEffect(() => {
+    findTodo(id);
+  }, []);
+
   return (
     <Container>
-      <Card title="Todo App" className="m-4">
-        <h3>Tarefa nº ...</h3>
-        <p>Descrição da tarefa ...</p>
-        <Todo />
+      <Card title="Todo Detail" className="m-4">
+        <h3>{`Tarefa n° ${todoDetail.id}`}</h3>
+        <b>{`Descrição: ${todoDetail.title}`}</b>
+        <p>{`Estado: ${todoDetail.completed ? 'Completa' : 'Pendente'}`}</p>
       </Card>
     </Container>
   );
